@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظومة تطوير المبيعات B2B وإعلانات جوجل للمصانع | KAAF Group</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cairo & IBM Plex Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kaaf: {
+                            blue: '#0A4C86',
+                            blueLight: '#1C75C8',
+                            blueDeep: '#05233E',
+                            blueDarkest: '#031424',
+                            green: '#00875A',
+                            greenLight: '#00B377',
+                            greenDeep: '#023824',
+                            gold: '#D4AF37',
+                            goldLight: '#F5DE88',
+                            purple: '#7C3AED',
+                            purpleLight: '#A78BFA',
+                            rose: '#E11D48',
+                            roseLight: '#FB7185',
+                            cyan: '#06B6D4',
+                            cyanLight: '#67E8F9',
+                            amber: '#F59E0B',
+                            dark: '#030812',
+                            darkSlate: '#081220',
+                            cardBg: '#0B1A2E',
+                            border: '#1B314B'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        ibm: ['IBM Plex Sans Arabic', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 40px -10px rgba(10, 76, 134, 0.7)',
+                        'glow-green': '0 0 40px -10px rgba(0, 135, 90, 0.7)',
+                        'glow-purple': '0 0 40px -10px rgba(124, 58, 237, 0.7)',
+                        'glow-gold': '0 0 40px -10px rgba(212, 175, 55, 0.6)',
+                        'web-card': '0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #030812;
+            color: #E2E8F0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fullscreen Interactive Canvas */
+        #interactive-bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        /* Top Accent Ribbon */
+        .kaaf-colorful-ribbon {
+            background: linear-gradient(90deg, 
+                #0A4C86 0%, 
+                #06B6D4 20%, 
+                #00875A 40%, 
+                #D4AF37 60%, 
+                #7C3AED 80%, 
+                #E11D48 100%
+            );
+            height: 4px;
+        }
+
+        /* Web Glassmorphic Card Styles */
+        .web-card-blue {
+            background: linear-gradient(135deg, rgba(10, 30, 56, 0.82) 0%, rgba(5, 16, 32, 0.94) 100%);
+            border: 1px solid rgba(28, 117, 200, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-blue:hover {
+            border-color: rgba(28, 117, 200, 0.85);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(10, 76, 134, 0.5);
+        }
+
+        .web-card-green {
+            background: linear-gradient(135deg, rgba(8, 38, 28, 0.82) 0%, rgba(4, 20, 15, 0.94) 100%);
+            border: 1px solid rgba(0, 179, 119, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-green:hover {
+            border-color: rgba(0, 179, 119, 0.85);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 135, 90, 0.5);
+        }
+
+        .web-card-purple {
+            background: linear-gradient(135deg, rgba(30, 18, 54, 0.82) 0%, rgba(14, 8, 28, 0.94) 100%);
+            border: 1px solid rgba(167, 139, 250, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-purple:hover {
+            border-color: rgba(167, 139, 250, 0.85);
+            box-shadow: 0 20px 40px -10px rgba(124, 58, 237, 0.5);
+        }
+
+        .web-card-cyan {
+            background: linear-gradient(135deg, rgba(8, 36, 48, 0.82) 0%, rgba(4, 18, 26, 0.94) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-cyan:hover {
+            border-color: rgba(6, 182, 212, 0.85);
+            box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.5);
+        }
+
+        .web-card-amber {
+            background: linear-gradient(135deg, rgba(38, 28, 12, 0.82) 0%, rgba(20, 14, 6, 0.94) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-amber:hover {
+            border-color: rgba(245, 158, 11, 0.85);
+            box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.5);
+        }
+
+        .web-card-rose {
+            background: linear-gradient(135deg, rgba(40, 14, 28, 0.82) 0%, rgba(20, 6, 14, 0.94) 100%);
+            border: 1px solid rgba(251, 113, 133, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-rose:hover {
+            border-color: rgba(251, 113, 133, 0.85);
+            box-shadow: 0 20px 40px -10px rgba(225, 29, 72, 0.5);
+        }
+
+        /* Floating living icons */
+        @keyframes float-alive-left {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                box-shadow: 0 10px 25px -5px rgba(10, 76, 134, 0.6), 0 0 20px rgba(30, 117, 198, 0.4);
+            }
+            50% {
+                transform: translateY(-8px) rotate(1deg);
+                box-shadow: 0 20px 35px -5px rgba(10, 76, 134, 0.85), 0 0 30px rgba(30, 117, 198, 0.65);
+            }
+        }
+
+        @keyframes float-alive-right {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5), 0 0 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.04);
+                box-shadow: 0 20px 35px -5px rgba(37, 211, 102, 0.85), 0 0 32px rgba(37, 211, 102, 0.65);
+            }
+        }
+
+        .animate-floating-kaaf {
+            animation: float-alive-left 4s ease-in-out infinite;
+        }
+
+        .animate-floating-whatsapp {
+            animation: float-alive-right 4s ease-in-out infinite 0.7s;
+        }
+
+        /* Nav link underline marker */
+        .nav-link {
+            position: relative;
+            transition: color 0.2s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #06B6D4;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-kaaf-blue selection:text-white">
+
+    <!-- Fullscreen Interactive Canvas Layer -->
+    <canvas id="interactive-bg-canvas"></canvas>
+
+    <!-- FLOATING KAAF GROUP LOGO BUTTON (BOTTOM LEFT) -->
+    <aside id="floating-kaaf-btn" class="fixed bottom-6 left-6 z-50">
+        <a href="https://kaafmarketing.sa/" target="_blank" rel="noopener noreferrer" title="مجموعة كاف | KAAF Group for Marketing, Software & Media Solutions" class="block w-14 h-14 rounded-full overflow-hidden border-2 border-kaaf-cyanLight/80 p-0.5 bg-black/90 animate-floating-kaaf transition-all duration-300 hover:scale-110 active:scale-95 group backdrop-blur-md hover:border-kaaf-cyanLight hover:shadow-glow-blue">
+            <img src="https://i.ibb.co/qLQcG9vr/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="KAAF Group Logo" class="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105">
+        </a>
+    </aside>
+
+    <!-- FLOATING WHATSAPP BUTTON (BOTTOM RIGHT) -->
+    <aside id="floating-wa-btn" class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/966558029554" target="_blank" rel="noopener noreferrer" title="تواصل مباشر مع الإدارة التجارية | KAAF Group" class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center border-2 border-emerald-200/80 animate-floating-whatsapp transition-all duration-300 hover:scale-110 active:scale-95 group shadow-lg hover:shadow-emerald-500/50">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </a>
+    </aside>
+
+    <!-- TOP WEBSITE NAVIGATION BAR -->
+    <header id="top-nav" class="sticky top-0 z-50 bg-kaaf-dark/85 backdrop-blur-xl border-b border-kaaf-border/70 px-4 lg:px-12 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo & Identity -->
+            <a href="https://kaafmarketing.sa/" target="_blank" class="flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-2xl overflow-hidden border border-kaaf-blueLight/50 p-0.5 bg-black shrink-0 shadow-glow-blue transition-transform group-hover:scale-105">
+                    <img src="https://i.ibb.co/qLQcG9vr/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="KAAF Group Logo" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-base font-black text-white tracking-wide font-ibm">KAAF Group</span>
+                        <span class="px-2 py-0.5 rounded-full bg-kaaf-blue/30 text-kaaf-cyanLight text-[10px] font-extrabold border border-kaaf-blue/50">حلول المصانع والتوريد B2B</span>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-medium">Marketing, Software & Media Solutions</p>
+                </div>
+            </a>
+
+            <!-- Desktop Website Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-xs font-bold text-gray-300">
+                <a href="#executive-summary" class="nav-link hover:text-white">نظرة عامة</a>
+                <a href="#sales-service" class="nav-link hover:text-white">فريق المبيعات B2B</a>
+                <a href="#google-service" class="nav-link hover:text-white">إعلانات وجوجل مابس</a>
+                <a href="#integration" class="nav-link hover:text-white">تكامل الخدمتين</a>
+                <a href="#deliverables" class="nav-link hover:text-white">المخرجات والتقارير</a>
+                <a href="#responsibilities" class="nav-link hover:text-white">حدود المسؤولية</a>
+                <a href="#contact-lead" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-kaaf-blue to-kaaf-cyan text-white font-black hover:brightness-110 shadow-sm transition">بدء التنسيق</a>
+            </nav>
+
+            <!-- Mobile Contact Button -->
+            <div class="lg:hidden flex items-center gap-2">
+                <a href="https://wa.me/966558029554" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>تواصل معنا</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTINUOUS WEBSITE CONTAINER -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-24">
+
+        <!-- ========================================================================= -->
+        <!-- 01 — HERO SECTION (MANUFACTURING B2B SALES ENGINE)                       -->
+        <!-- ========================================================================= -->
+        <section id="executive-summary" class="relative rounded-[32px] overflow-hidden p-8 sm:p-14 lg:p-20 bg-gradient-to-br from-kaaf-blueDeep/90 via-kaaf-darkSlate/95 to-kaaf-dark/95 border border-kaaf-blue/50 shadow-web-card text-white backdrop-blur-lg">
+            <div class="kaaf-colorful-ribbon absolute top-0 left-0 right-0"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <!-- Left Hero Details (7 Cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-kaaf-blue/30 border border-kaaf-blueLight/40 text-kaaf-cyanLight text-xs font-bold font-ibm tracking-wide">
+                        <i class="fa-solid fa-industry text-kaaf-cyan"></i>
+                        <span>عرض فني وتشغيلي لتطوير مبيعات المصانع والمنشآت الإنتاجية</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-white/10 border border-white/15 text-xs text-kaaf-goldLight font-bold">
+                            <span>القطاع المستهدف الرئيسي:</span>
+                            <span class="text-white font-extrabold tracking-wide font-ibm text-sm">توسيع منافذ وشبكات التوريد التجاري (B2B) مع دعم قطاع (B2C)</span>
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+                            منظومة تطوير مبيعات المصنع <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-l from-kaaf-cyan via-kaaf-blueLight to-kaaf-purpleLight">
+                                B2B Sales & Digital Acquisition
+                            </span>
+                        </h1>
+                        <p class="text-lg sm:text-xl font-bold text-sky-100/90 font-cairo">
+                            تكامل بين مسار التواصل البيعي المباشر واستهداف الباحثين عن المنتجات والموردين عبر Google
+                        </p>
+                    </div>
+
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl font-normal">
+                        صُمم هذا العرض من <strong>KAAF Group for Marketing, Software & Media Solutions</strong> لتمكين المصنع من فتح منافذ بيع جديدة وتطوير قنوات التوزيع من خلال مسارين متوازيين: <strong>فريق مبيعات خارجي مخصص</strong> يتحرك مباشرة نحو الشركاء التجاريين، و<strong>حملات إعلانات جوجل والظهور الجغرافي عبر Google Maps</strong> لاقتناص طلبات التوريد والبحث النشط في السوق.
+                    </p>
+
+                    <!-- Trust Points / Metrics Bar -->
+                    <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="p-3.5 rounded-2xl bg-black/50 border border-white/10 text-center">
+                            <span class="text-xs text-gray-400 block font-medium">مقدم المنظومة</span>
+                            <span class="text-sm font-black text-white font-ibm">KAAF Group</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-black/50 border border-white/10 text-center">
+                            <span class="text-xs text-gray-400 block font-medium">التركيز التشغيلي</span>
+                            <span class="text-sm font-black text-kaaf-cyanLight font-ibm">تنمية مبيعات B2B</span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1 p-3.5 rounded-2xl bg-black/50 border border-white/10 text-center">
+                            <span class="text-xs text-gray-400 block font-medium">المنهجية</span>
+                            <span class="text-sm font-black text-kaaf-greenLight">Direct Sales + Google Ads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Interactive Visual (5 Cols) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-sm space-y-3.5 p-6 rounded-3xl bg-kaaf-cardBg/90 border border-kaaf-blue/50 shadow-2xl backdrop-blur-md">
+                        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span class="text-xs font-black text-white">مسارا النمو التجاري للمصنع</span>
+                            </div>
+                            <span class="text-[10px] text-kaaf-cyan font-mono font-bold">DUAL-ENGINE SYSTEM</span>
+                        </div>
+
+                        <!-- Track 1: Direct B2B Sales -->
+                        <div class="p-4 rounded-2xl bg-kaaf-blue/20 border border-kaaf-blue/40 space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-handshake text-kaaf-cyanLight"></i>
+                                    المسار الأول: المبيعات الخارجية
+                                </span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-kaaf-blue/40 text-kaaf-cyan font-mono">Outreach</span>
+                            </div>
+                            <p class="text-[11px] text-gray-300">استهداف مباشر للمعارض، والمحلات، وتجار الجملة، والموزعين لتأسيس علاقات توريد مستدامة.</p>
+                        </div>
+
+                        <!-- Track 2: Google Search & Maps -->
+                        <div class="p-4 rounded-2xl bg-kaaf-green/20 border border-kaaf-green/40 space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-white flex items-center gap-2">
+                                    <i class="fa-brands fa-google text-kaaf-greenLight"></i>
+                                    المسار الثاني: الوصول الرقمي والخرائط
+                                </span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-kaaf-green/40 text-kaaf-greenLight font-mono">Inbound</span>
+                            </div>
+                            <p class="text-[11px] text-gray-300">اقتناص الباحثين عن المنتجات والمصانع على Google Search وتعزيز الاكتشاف المحلي عبر Google Maps.</p>
+                        </div>
+
+                        <div class="pt-2 text-center">
+                            <a href="#integration" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-kaaf-blue via-kaaf-cyan to-kaaf-green text-white font-black text-xs hover:brightness-110 shadow-md transition">
+                                <span>استعراض آلية تكامل المسارين</span>
+                                <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 02 — SERVICE ONE: OUTSOURCED SALES TEAM FOR FACTORIES                     -->
+        <!-- ========================================================================= -->
+        <section id="sales-service" class="space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-full bg-kaaf-blue/30 text-kaaf-cyanLight font-black text-xs border border-kaaf-blue/50">الخدمة الأولى</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">توفير وإدارة فريق مبيعات خارجي | Outsourced Sales Team</h2>
+                </div>
+                <span class="text-xs text-gray-400 font-mono">B2B Commercial Outreach</span>
+            </div>
+
+            <!-- Strategic Scope for Factory -->
+            <div class="web-card-blue rounded-3xl p-6 sm:p-10 shadow-web-card space-y-5">
+                <div class="flex items-center gap-3 text-kaaf-cyanLight font-bold text-sm">
+                    <i class="fa-solid fa-network-wired text-lg"></i>
+                    <span>الهدف المحوري: بناء وتوسيع شبكة العملاء التجاريين للمصنع</span>
+                </div>
+                <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-medium">
+                    تهدف الخدمة إلى مساعدة المصنع في بناء وتوسيع شبكة عملائه التجاريين بطريقة منظمة، مع التركيز على استكشاف وتطوير فرص التعاقد وعلاقات التوريد، والوصول إلى مختلف قنوات التوزيع التي تتناسب مع طبيعة منتجات المصنع وقدرته الإنتاجية.
+                </p>
+
+                <!-- Target B2B Segments Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-blue/40 space-y-2">
+                        <div class="flex items-center gap-2 text-white font-bold text-xs">
+                            <i class="fa-solid fa-store text-kaaf-cyanLight"></i>
+                            <span>المعارض والمتاجر المتخصصة</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 leading-relaxed">
+                            المنافذ التي تمتلك مساحات عرض مؤهلة لعرض منتجات المصنع وإتاحتها للبيع لعملائها النهائيين.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-blue/40 space-y-2">
+                        <div class="flex items-center gap-2 text-white font-bold text-xs">
+                            <i class="fa-solid fa-shop text-kaaf-cyanLight"></i>
+                            <span>المحلات وتجار التجزئة</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 leading-relaxed">
+                            متاجر التجزئة المناسبة لطبيعة المنتجات والتي تبحث عن مصادر توريد دورية بأسعار منافسة.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-blue/40 space-y-2">
+                        <div class="flex items-center gap-2 text-white font-bold text-xs">
+                            <i class="fa-solid fa-boxes-stacked text-kaaf-cyanLight"></i>
+                            <span>تجار الجملة والموزعون</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 leading-relaxed">
+                            الكيانات التي تبحث عن موردين ومصانع موثوقة لتوسيع تشكيلة المنتجات المتاحة في مستودعاتها وشبكاتها.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-blue/40 space-y-2">
+                        <div class="flex items-center gap-2 text-white font-bold text-xs">
+                            <i class="fa-solid fa-building text-kaaf-cyanLight"></i>
+                            <span>الشركات والمنشآت التجارية</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 leading-relaxed">
+                            المؤسسات والشركات التي تحتاج إلى توريد المنتجات بصورة مستمرة أو دورية لتشغيل أعمالها أو مشاريعها.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-blue/40 space-y-2 sm:col-span-2 lg:col-span-2">
+                        <div class="flex items-center gap-2 text-white font-bold text-xs">
+                            <i class="fa-solid fa-route text-kaaf-cyanLight"></i>
+                            <span>قنوات البيع والتوزيع الإضافية</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 leading-relaxed">
+                            أي قنوات بيع تجارية أو منافذ غير تقليدية تتناسب مع طبيعة منتجات المصنع والسوق الجغرافي المستهدف وتسمح باستيعاب كميات إضافية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Operational Stages of Sales Team -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-kaaf-cyanLight"></i>
+                    <span>مراحل تنفيذ خدمة فريق المبيعات الخارجي (01 - 05)</span>
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Stage 1 -->
+                    <div class="web-card-blue p-6 rounded-3xl space-y-3.5 border-t-4 border-t-kaaf-cyan">
+                        <div class="flex items-center justify-between border-b border-kaaf-blue/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-kaaf-cyanLight px-2 py-0.5 rounded bg-kaaf-blue/40">المرحلة 01</span>
+                            <i class="fa-solid fa-magnifying-glass-chart text-kaaf-cyanLight text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">فهم المصنع والمنتجات</h4>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-cyanLight mt-0.5 shrink-0"></i> <span>التعرف الدقيق على المنتجات، ومواصفاتها، ومميزاتها، واستخداماتها، والفئات المناسبة لشرائها.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-cyanLight mt-0.5 shrink-0"></i> <span>استيعاب سياسة البيع والتوريد، وشروط التعامل التجاري، والحد الأدنى للطلبات (MOQ) إن وجد.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-cyanLight mt-0.5 shrink-0"></i> <span>فهم آلية التسعير وهيكل الخصومات المعتمدة من المصنع لقطاع التوزيع.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-cyanLight mt-0.5 shrink-0"></i> <span>تحديد المزايا التنافسية الواقعية التي يمكن إبرازها أثناء التواصل مع العملاء التجاريين.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="web-card-blue p-6 rounded-3xl space-y-3.5 border-t-4 border-t-kaaf-blueLight">
+                        <div class="flex items-center justify-between border-b border-kaaf-blue/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-kaaf-cyanLight px-2 py-0.5 rounded bg-kaaf-blue/40">المرحلة 02</span>
+                            <i class="fa-solid fa-bullseye text-kaaf-blueLight text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">تحديد العملاء المستهدفين</h4>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-blueLight mt-0.5 shrink-0"></i> <span>بناء تصور واضح لأنواع المعارض، والمحلات، وتجار الجملة، والموزعين الأنسب لمنتجات المصنع.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-blueLight mt-0.5 shrink-0"></i> <span>تقسيم العملاء المحتملين إلى فئات متجانسة وفقًا لطبيعة النشاط وملاءمة فئة المنتج.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-blueLight mt-0.5 shrink-0"></i> <span>إعداد وتدقيق قاعدة بيانات منظمة لجهات الاتصال والمسؤولين عن المشتريات والتوريد.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-blueLight mt-0.5 shrink-0"></i> <span>ترتيب أولويات التواصل بناءً على الأهمية النسبية والموقع الجغرافي.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="web-card-blue p-6 rounded-3xl space-y-3.5 border-t-4 border-t-kaaf-purpleLight">
+                        <div class="flex items-center justify-between border-b border-kaaf-blue/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-kaaf-purpleLight px-2 py-0.5 rounded bg-kaaf-purple/40">المرحلة 03</span>
+                            <i class="fa-solid fa-phone-volume text-kaaf-purpleLight text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">التواصل التجاري وفتح الفرص</h4>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-purpleLight mt-0.5 shrink-0"></i> <span>إجراء التواصل المهني والممنهج مع مسؤولي المشتريات عبر القنوات المناسبة.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-purpleLight mt-0.5 shrink-0"></i> <span>تقديم المصنع ومنتجاته وقدراته الإنتاجية بصورة واضحة ومقنعة.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-purpleLight mt-0.5 shrink-0"></i> <span>شرح خيارات التوريد والتعاون المتاحة وفقًا للسياسات المعتمدة من إدارة المصنع.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-purpleLight mt-0.5 shrink-0"></i> <span>استكشاف احتياجات العميل التجاري ومعرفة مدى اهتمامه وجديته وترتيب اجتماعات تجارية عند الحاجة.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="web-card-blue p-6 rounded-3xl space-y-3.5 border-t-4 border-t-kaaf-gold">
+                        <div class="flex items-center justify-between border-b border-kaaf-blue/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-kaaf-goldLight px-2 py-0.5 rounded bg-kaaf-amber/40">المرحلة 04</span>
+                            <i class="fa-solid fa-handshake-angle text-kaaf-gold text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">المتابعة والتفاوض التجاري</h4>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-gold mt-0.5 shrink-0"></i> <span>المتابعة الحثيثة للعملاء الذين أبدوا اهتماماً بتشكيلة المنتجات وخيارات التوريد.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-gold mt-0.5 shrink-0"></i> <span>الرد على الاستفسارات الفنية وتوضيح التفاصيل التجارية بالتنسيق الدائم مع المصنع.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-gold mt-0.5 shrink-0"></i> <span>متابعة طلبات عروض الأسعار ونماذج العينات الفنية (إذا كانت متوفرة).</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-kaaf-gold mt-0.5 shrink-0"></i> <span>دعم المناقشات التجارية للوصول إلى صيغة تفاهم مناسبة بالتنسيق مع الإدارة المختصة.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stage 5 -->
+                    <div class="web-card-blue p-6 rounded-3xl space-y-3.5 border-t-4 border-t-emerald-400 md:col-span-2 lg:col-span-2">
+                        <div class="flex items-center justify-between border-b border-kaaf-blue/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/60">المرحلة 05</span>
+                            <i class="fa-solid fa-chart-line text-emerald-400 text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">تنظيم فرص البيع والتقارير الدورية</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300 leading-relaxed">
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i> <span>تسجيل وتوثيق بيانات العملاء وحالة كل فرصة بيعية داخل سجل منظم.</span></div>
+                                <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i> <span>توثيق مسار التواصل، وتواريخ المتابعات، والملاحظات الخاصة بكل عميل تجاري.</span></div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i> <span>تقديم تقارير دورية توضح الأنشطة المنفذة، والفرص القائمة، والخطوات التالية المطلوبة.</span></div>
+                                <div class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i> <span>توفير رؤية إدارية واضحة لإدارة المصنع حول حركة السوق والفرص المحتملة.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Factory Value from Sales Team -->
+            <div class="web-card-blue rounded-3xl p-6 sm:p-8 space-y-4 border-r-4 border-r-kaaf-cyanLight">
+                <h4 class="text-sm font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-gem text-kaaf-cyanLight"></i>
+                    <span>القيمة المضافة العائدة على المصنع من تشغيل فريق المبيعات الخارجي:</span>
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs text-gray-300 leading-relaxed">
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-cyanLight font-bold block">• فتح منافذ بيع جديدة</span>
+                        <span>الوصول المنظم إلى معارض ومحلات وتجار لم يكن للمصنع قنوات اتصال سابقة معهم.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-cyanLight font-bold block">• توسيع شبكة العلاقات</span>
+                        <span>بناء شبكة تواصل مؤسسية مع موزعين يبحثون باستمرار عن مصادر إنتاج وتوريد محلية.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-cyanLight font-bold block">• مبيعات ممنهجة بدل العشوائية</span>
+                        <span>تنظيم دورة البيع والمتابعات اليومية بدلاً من الاعتماد على التحركات الفردية غير الموثقة.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-cyanLight font-bold block">• انتظام متابعة فرص التوريد</span>
+                        <span>ضمان عدم إهمال أي عميل مهتم ومواصلة الحوار حتى الوصول إلى قرار تجاري واضح.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-cyanLight font-bold block">• فهم اعتبارات السوق الميداني</span>
+                        <span>مساعدة إدارة المصنع في التعرف على متطلبات الموزعين، والأسعار المقبولة، وأبرز الاعتراضات.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-cyanLight font-bold block">• علاقات قابلة للاستمرار</span>
+                        <span>دعم بناء شراكات توريد تتطور بحسب الطاقة التشغيلية والقدرة الإنتاجية المتاحة للمصنع.</span>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-black/60 border border-kaaf-border text-xs text-slate-300 flex items-start gap-3 mt-2">
+                    <i class="fa-solid fa-circle-info text-kaaf-cyanLight text-base shrink-0 mt-0.5"></i>
+                    <span><strong>تنويه مهني معتمد:</strong> يعمل فريق المبيعات الخارجي على فتح وتطوير الفرص التجارية ومتابعتها بجدية ودعم تحويل الفرص المناسبة إلى تعاقدات محتملة بالتنسيق مع إدارة المصنع؛ ولا يُقدَّم ذلك باعتباره ضماناً حتمياً لإبرام تعاقدات، إذ يخضع التعاقد النهائي لمعايير الجودة، والأسعار، والملاءمة، والقدرة التشغيلية، وموافقة أطراف التعامل.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 03 — SERVICE TWO: GOOGLE ADS & GOOGLE MAPS VISIBILITY                    -->
+        <!-- ========================================================================= -->
+        <section id="google-service" class="space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-full bg-kaaf-green/30 text-kaaf-greenLight font-black text-xs border border-kaaf-green/50">الخدمة الثانية</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">إعلانات جوجل والظهور عبر الخرائط | Google Ads & Google Maps</h2>
+                </div>
+                <span class="text-xs text-gray-400 font-mono">Search & Map Acquisition Engine</span>
+            </div>
+
+            <!-- Core Logic for Search Intent -->
+            <div class="web-card-green rounded-3xl p-6 sm:p-10 shadow-web-card space-y-5">
+                <div class="flex items-center gap-3 text-kaaf-greenLight font-bold text-sm">
+                    <i class="fa-solid fa-bullhorn text-lg"></i>
+                    <span>الهدف المحوري: اقتناص نية الشراء والبحث النشط عن المنتجات والموردين</span>
+                </div>
+                <p class="text-base sm:text-lg text-slate-200 leading-relaxed font-medium">
+                    تتيح إعلانات جوجل للمصنع إمكانية الوصول إلى أشخاص وشركات يبحثون في اللحظة ذاتها عن منتجات المصنع أو عن موردين ومصانع تعمل في مجاله. ينصب التركيز الأساسي على اكتساب عملاء تجاريين محتملين (B2B)، مع مرونة استيعاب ودعم الطلبات الفردية المباشرة (B2C) متى توافق ذلك مع سياسة المصنع البيعية.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-green/40 space-y-2">
+                        <div class="flex items-center gap-2 text-white font-bold text-xs">
+                            <i class="fa-solid fa-cart-flatbed text-kaaf-greenLight"></i>
+                            <span>استهداف قطاع الأعمال (B2B Focus)</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 leading-relaxed">
+                            التركيز على الكلمات الدالة على الشراء بالجملة، والبحث عن مصانع، وموردي خامات، أو طلبات التوزيع، لجلب طلبات عروض أسعار تجارية ذات قيمة مستمرة.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-green/40 space-y-2">
+                        <div class="flex items-center gap-2 text-white font-bold text-xs">
+                            <i class="fa-solid fa-user-tag text-kaaf-greenLight"></i>
+                            <span>دعم طلبات الأفراد (B2C Extension)</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 leading-relaxed">
+                            توجيه الحملات للطلبات الفردية أو المباشرة إذا كانت طاقة المصنع وسياساته تسمح بالبيع المباشر للمستهلك النهائي دون الإضرار بشبكة الموزعين.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Operational Stages of Google Ads & Maps -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-kaaf-greenLight"></i>
+                    <span>مراحل تنفيذ خدمة إعلانات جوجل والخرائط (01 - 05)</span>
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Stage 1 -->
+                    <div class="web-card-green p-6 rounded-3xl space-y-3.5 border-t-4 border-t-kaaf-greenLight">
+                        <div class="flex items-center justify-between border-b border-kaaf-green/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-kaaf-greenLight px-2 py-0.5 rounded bg-kaaf-green/40">المرحلة 01</span>
+                            <i class="fa-solid fa-magnifying-glass text-kaaf-greenLight text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">دراسة المنتجات وسلوك البحث</h4>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-greenLight mt-0.5 shrink-0"></i> <span>فهم طبيعة المنتجات واستخداماتها ومواصفاتها الفنية وتحديد الفئات الأكثر احتياجاً لها.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-greenLight mt-0.5 shrink-0"></i> <span>تحديد الكلمات وعبارات البحث التي يستخدمها تجار الجملة والمحلات عند البحث عن موردين.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-greenLight mt-0.5 shrink-0"></i> <span>التمييز الدقيق بين الكلمات ذات النية التجارية B2B وكلمات الاستهلاك النهائي B2C.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-greenLight mt-0.5 shrink-0"></i> <span>تحديد النطاقات الجغرافية التي يستطيع المصنع تغطيتها وتوريد المنتجات إليها بكفاءة.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="web-card-green p-6 rounded-3xl space-y-3.5 border-t-4 border-t-emerald-400">
+                        <div class="flex items-center justify-between border-b border-kaaf-green/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/60">المرحلة 02</span>
+                            <i class="fa-solid fa-sliders text-emerald-400 text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">إعداد استراتيجية الحملات</h4>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5 shrink-0"></i> <span>اختيار الكلمات المفتاحية الأكثر ملاءمة لطبيعة المنتجات واهتمامات المشترين التجاريين.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5 shrink-0"></i> <span>هيكلة الحملات والمجموعات الإعلانية حسب خطوط الإنتاج أو المناطق الجغرافية المستهدفة.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5 shrink-0"></i> <span>صياغة نصوص إعلانية تبرز مزايا المصنع، والقدرة على التوريد، ومواصفات المنتج.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5 shrink-0"></i> <span>ربط كل حملة بصفحة هبوط أو وسيلة اتصال واضحة لاستقبال الاستفسارات التجارية.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="web-card-green p-6 rounded-3xl space-y-3.5 border-t-4 border-t-kaaf-cyan">
+                        <div class="flex items-center justify-between border-b border-kaaf-green/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-kaaf-cyanLight px-2 py-0.5 rounded bg-kaaf-cyan/40">المرحلة 03</span>
+                            <i class="fa-solid fa-filter text-kaaf-cyanLight text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">استهداف الباحثين والفلترة</h4>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5 shrink-0"></i> <span>استخدام إعلانات شبكة البحث (Google Search) للوصول للباحثين عن المنتجات والمصانع.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5 shrink-0"></i> <span>التركيز على عبارات الشراء بالجملة، والوكالات، والتوريد متى كانت ملائمة للمنتج.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5 shrink-0"></i> <span>بناء قائمة كلمات سلبية (Negative Keywords) متجددة لاستبعاد عمليات البحث غير الملائمة وتفادي الهدر.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5 shrink-0"></i> <span>توجيه رسائل مخصصة للعميل التجاري تلبي اهتماماته بالكميات والأسعار والتسليم.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="web-card-green p-6 rounded-3xl space-y-3.5 border-t-4 border-t-kaaf-gold md:col-span-2 lg:col-span-2">
+                        <div class="flex items-center justify-between border-b border-kaaf-green/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-kaaf-goldLight px-2 py-0.5 rounded bg-kaaf-amber/40">المرحلة 04</span>
+                            <i class="fa-solid fa-map-location-dot text-kaaf-gold text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">تعزيز الظهور عبر Google Maps (فصل مهني دقيق)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-300 leading-relaxed">
+                            <div class="space-y-2">
+                                <span class="font-bold text-white block">• ملف النشاط التجاري والاكتشاف الجغرافي:</span>
+                                <p>يساعد الظهور على خرائط جوجل في تمكين العملاء القريبين والشركاء من اكتشاف موقع المصنع، ومستودعاته، وساعات العمل، وأرقام التواصل الرسمية، والاتجاهات الملاحية المباشرة.</p>
+                                <p class="text-gray-400">تعتمد الاستفادة من الخرائط على تجهيز ملف النشاط التجاري (Google Business Profile)، وتوثيقه، ودقة البيانات، ومدى أهلية النشاط والهدف الإعلاني.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <span class="font-bold text-white block">• الحملات المرتبطة بالموقع الجغرافي:</span>
+                                <p>الاستفادة من خيارات إضافات الموقع (Location Assets) المتاحة داخل Google Ads لزيادة فرص ظهور بيانات المصنع للمهتمين المتواجدين في المناطق الصناعية أو المستهدفة بالتوزيع.</p>
+                                <div class="p-2.5 rounded-xl bg-black/50 border border-white/10 text-[11px] text-slate-300">
+                                    <strong class="text-kaaf-gold">توضيح شفاف:</strong> لا يضمن دفع الميزانية تصدر النتائج العضوية المجانية على الخرائط، كما لا تظهر كل حملات البحث تلقائياً على الخرائط إلا وفق خوارزميات ومعايير جوجل المعتمدة وملاءمة البحث.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 5 -->
+                    <div class="web-card-green p-6 rounded-3xl space-y-3.5 border-t-4 border-t-kaaf-purpleLight">
+                        <div class="flex items-center justify-between border-b border-kaaf-green/40 pb-3">
+                            <span class="text-xs font-mono font-bold text-kaaf-purpleLight px-2 py-0.5 rounded bg-kaaf-purple/40">المرحلة 05</span>
+                            <i class="fa-solid fa-chart-pie text-kaaf-purpleLight text-lg"></i>
+                        </div>
+                        <h4 class="text-base font-black text-white">استقبال الاستفسارات والتحسين المستمر</h4>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-purpleLight mt-0.5 shrink-0"></i> <span>توجيه العملاء لقناة تواصل سلسة (اتصال مباشر، واتساب، نموذج طلب عرض سعر).</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-purpleLight mt-0.5 shrink-0"></i> <span>متابعة المؤشرات المتاحة (مرات الظهور، النقرات، الاستفسارات المحققة، كفاءة الإنفاق).</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-purpleLight mt-0.5 shrink-0"></i> <span>تحسين دوري للكلمات ونصوص الإعلانات بناءً على سلوك الباحثين الفعلي.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-purpleLight mt-0.5 shrink-0"></i> <span>تمرير البيانات لفريق المبيعات للمتابعة السريعة واستكمال دورة التأهيل.</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Factory Value from Google Ads & Maps -->
+            <div class="web-card-green rounded-3xl p-6 sm:p-8 space-y-4 border-r-4 border-r-kaaf-greenLight">
+                <h4 class="text-sm font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-kaaf-greenLight"></i>
+                    <span>القيمة المضافة العائدة على المصنع من إعلانات جوجل والخرائط:</span>
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs text-gray-300 leading-relaxed">
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-greenLight font-bold block">• استقطاب باحثين مهتمين فعلياً</span>
+                        <span>الظهور أمام مشترين وتجار يبحثون بقرارات شراء وتوريد نشطة وليس مجرد تصفح عابر.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-greenLight font-bold block">• تغطية جغرافية محددة</span>
+                        <span>تركيز الإعلانات على المدن والمناطق التي يمتلك المصنع فيها قدرة توريد وتوزيع متميزة.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-greenLight font-bold block">• قناة رقمية موازية</span>
+                        <span>إتاحة قناة لاكتشاف عملاء وموزعين جدد دون الاقتصار فقط على قنوات التسويق التقليدية.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-greenLight font-bold block">• تدفق طلبات التوريد</span>
+                        <span>تسهيل استقبال طلبات عروض الأسعار والكميات الكبيرة عبر وسائل اتصال مباشرة.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-greenLight font-bold block">• فهم دقيق للسوق</span>
+                        <span>توفير بيانات حقيقية عن مصطلحات البحث التي يستخدمها المشترون لخدمة التخطيط الإنتاجي.</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-black/40 border border-white/5 space-y-1">
+                        <span class="text-kaaf-greenLight font-bold block">• تغذية فريق المبيعات</span>
+                        <span>إمداد مسار المبيعات بفرص واردة ساخنة تحتاج إلى استجابة مهنية سريعة وتأهيل.</span>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-black/60 border border-kaaf-border text-xs text-slate-300 flex items-start gap-3 mt-2">
+                    <i class="fa-solid fa-circle-info text-kaaf-greenLight text-base shrink-0 mt-0.5"></i>
+                    <span><strong>تنويه مهني معتمد:</strong> تعمل الحملات الإعلانية على زيادة فرص الظهور واكتساب استفسارات من الفئات المستهدفة؛ ولا تفترض المنظومة تحول كل استفسار إلى صفقة مبرمة تلقائياً، كما لا تشمل الخدمة وعوداً بترتيب محدد في نتائج البحث أو أعداد محددة من المبيعات، حيث ترتبط القرارات النهائية بعوامل تنافسية وجودة المنتج والأسعار.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 04 — STRATEGIC INTEGRATION BETWEEN BOTH SERVICES                         -->
+        <!-- ========================================================================= -->
+        <section id="integration" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-full bg-kaaf-purple/30 text-kaaf-purpleLight font-black text-xs border border-kaaf-purple/50">التكامل الاستراتيجي</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">كيف تعمل الخدمتان معًا ضمن منظومة واحدة لتطوير مبيعات المصنع؟</h2>
+            </div>
+
+            <div class="web-card-purple rounded-3xl p-6 sm:p-10 shadow-web-card space-y-8">
+                <div class="max-w-3xl space-y-2">
+                    <h3 class="text-lg sm:text-xl font-black text-white">
+                        قوة الجمع بين <span class="text-kaaf-cyanLight">التحرك المباشر للمنافذ</span> و <span class="text-kaaf-greenLight">اقتناص نية البحث النشط</span>
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                        لا يكتفي المصنع بانتظار العميل حتى يبحث عنه، ولا يعتمد حصراً على التواصل البارد؛ بل تجمع المنظومة بين قوة المسارين ليتحقق أقصى استثمار لفرص السوق:
+                    </p>
+                </div>
+
+                <!-- 2-Track Integrated Architecture Visual -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                    
+                    <!-- Track A: Google Search & Inbound (5 Cols) -->
+                    <div class="lg:col-span-5 p-5 rounded-2xl bg-kaaf-green/15 border border-kaaf-green/40 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-black text-kaaf-greenLight flex items-center gap-2">
+                                    <i class="fa-brands fa-google"></i>
+                                    المسار الأول: إعلانات وجوجل مابس
+                                </span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-kaaf-green/30 text-white font-mono">Inbound Demand</span>
+                            </div>
+                            <h4 class="text-sm font-bold text-white">اكتشاف واستقبال الباحثين عن المنتجات</h4>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                تظهر الإعلانات والخرائط للمشترين والمحلات والتجار الذين يبحثون بنشاط عن منتجات المصنع أو عن موردين في المنطقة، مما يوفر تدفقاً من طلبات الاهتمام وعروض الأسعار.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-kaaf-green/30 text-[11px] text-kaaf-greenLight font-bold">
+                            <i class="fa-solid fa-arrow-down-long ml-1"></i> يُحوّل فوراً لفريق المبيعات للمتابعة والتأهيل
+                        </div>
+                    </div>
+
+                    <!-- Integration Bridge Node (2 Cols) -->
+                    <div class="lg:col-span-2 flex flex-col items-center justify-center p-4 rounded-2xl bg-black/60 border border-white/10 text-center space-y-2">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-kaaf-blue to-kaaf-green text-white flex items-center justify-center text-sm shadow-glow-blue">
+                            <i class="fa-solid fa-arrows-split-up-and-left rotate-90"></i>
+                        </div>
+                        <span class="text-xs font-black text-white block">حلقة التنسيق والتوثيق</span>
+                        <span class="text-[10px] text-gray-400">سجل موحد لفرص المصنع</span>
+                    </div>
+
+                    <!-- Track B: Direct Sales Outreach (5 Cols) -->
+                    <div class="lg:col-span-5 p-5 rounded-2xl bg-kaaf-blue/15 border border-kaaf-blue/40 space-y-3 flex flex-col justify-between">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-black text-kaaf-cyanLight flex items-center gap-2">
+                                    <i class="fa-solid fa-users-gear"></i>
+                                    المسار الثاني: فريق المبيعات الخارجي
+                                </span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-kaaf-blue/30 text-white font-mono">Outreach Push</span>
+                            </div>
+                            <h4 class="text-sm font-bold text-white">التحرك المباشر نحو المعارض والموزعين</h4>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                لا ينتظر الفريق وصول العميل؛ بل يقوم بالاتصال المباشر بقوائم المعارض والمحلات وتجار الجملة المحددة، وعرض خيارات التوريد وفتح أبواب التعاون التجاري المؤسسي.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-kaaf-blue/30 text-[11px] text-kaaf-cyanLight font-bold">
+                            <i class="fa-solid fa-arrow-left-long ml-1"></i> تغذية الحملات بملاحظات السوق واعتراضات العملاء
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 4 Operational Pillars of Integration -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-white/10 space-y-1.5">
+                        <span class="text-xs font-bold text-white flex items-center gap-1.5">
+                            <i class="fa-solid fa-user-check text-kaaf-cyanLight"></i>
+                            استجابة سريعة للاستفسارات
+                        </span>
+                        <p class="text-[11px] text-gray-300">يتولى فريق المبيعات التواصل السريع مع العملاء القادمين من إعلانات جوجل لرفع فرص الاهتمام.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-white/10 space-y-1.5">
+                        <span class="text-xs font-bold text-white flex items-center gap-1.5">
+                            <i class="fa-solid fa-table-list text-kaaf-greenLight"></i>
+                            فصل وتصنيف مصادر الفرص
+                        </span>
+                        <p class="text-[11px] text-gray-300">تنظيم البيانات مع التمييز الدقيق بين العملاء الواردين من الحملات الرقمية والعملاء المستهدفين عبر الاتصال المباشر.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-white/10 space-y-1.5">
+                        <span class="text-xs font-bold text-white flex items-center gap-1.5">
+                            <i class="fa-solid fa-comments-dollar text-kaaf-gold"></i>
+                            تحسين الرسائل التسويقية
+                        </span>
+                        <p class="text-[11px] text-gray-300">استخدام اعتراضات الموزعين الميدانية لتحسين نصوص الإعلانات وتوجيه الكلمات المفتاحية الأكثر ربحية.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-kaaf-darkSlate/90 border border-white/10 space-y-1.5">
+                        <span class="text-xs font-bold text-white flex items-center gap-1.5">
+                            <i class="fa-solid fa-chart-pie text-kaaf-purpleLight"></i>
+                            رؤية شاملة لإدارة المصنع
+                        </span>
+                        <p class="text-[11px] text-gray-300">تقارير موحدة تعكس للمصنع حجم الاهتمام القادم من البحث وحجم التفاعل الناتج عن التواصل البيعي المباشر.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 05 — DELIVERABLES & OPERATIONAL MATRIX                                     -->
+        <!-- ========================================================================= -->
+        <section id="deliverables" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-full bg-kaaf-cyan/30 text-kaaf-cyanLight font-black text-xs border border-kaaf-cyan/50">المخرجات</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">المخرجات التشغيلية والتقارير (Deliverables & Reporting)</h2>
+            </div>
+
+            <div class="overflow-x-auto rounded-3xl border border-kaaf-border shadow-web-card bg-kaaf-darkSlate/90 backdrop-blur-md">
+                <table class="w-full text-right text-xs sm:text-sm">
+                    <thead class="bg-kaaf-cardBg text-gray-200 border-b border-kaaf-border font-bold">
+                        <tr>
+                            <th class="p-4 w-12 text-center">#</th>
+                            <th class="p-4">المخرج الفني والتشغيلي</th>
+                            <th class="p-4 w-40 text-center">الخدمة المرتبطة</th>
+                            <th class="p-4">الأثر التشغيلي والقيمة لإدارة المصنع</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-kaaf-border/60 text-gray-300">
+                        <tr class="hover:bg-kaaf-cardBg/60 transition">
+                            <td class="p-3.5 text-center font-mono text-kaaf-cyanLight">01</td>
+                            <td class="p-3.5 font-bold text-white">قاعدة بيانات جهات الاتصال التجارية</td>
+                            <td class="p-3.5 text-center"><span class="px-2.5 py-0.5 rounded-full bg-kaaf-blue/40 text-kaaf-cyanLight text-xs font-bold border border-kaaf-blue/50">فريق المبيعات B2B</span></td>
+                            <td class="p-3.5 text-gray-400">سجل منظم ببيانات المعارض، والمحلات، وتجار الجملة المستهدفين ومسؤولي المشتريات.</td>
+                        </tr>
+                        <tr class="hover:bg-kaaf-cardBg/60 transition">
+                            <td class="p-3.5 text-center font-mono text-kaaf-cyanLight">02</td>
+                            <td class="p-3.5 font-bold text-white">إجراء التواصل المهني وفتح قنوات التوريد</td>
+                            <td class="p-3.5 text-center"><span class="px-2.5 py-0.5 rounded-full bg-kaaf-blue/40 text-kaaf-cyanLight text-xs font-bold border border-kaaf-blue/50">فريق المبيعات B2B</span></td>
+                            <td class="p-3.5 text-gray-400">التواصل المنظم لتقديم المصنع وخيارات التوريد واكتشاف فرص التعامل المناسبة.</td>
+                        </tr>
+                        <tr class="hover:bg-kaaf-cardBg/60 transition">
+                            <td class="p-3.5 text-center font-mono text-kaaf-cyanLight">03</td>
+                            <td class="p-3.5 font-bold text-white">سجل متابعة الفرص التجارية (Pipeline Log)</td>
+                            <td class="p-3.5 text-center"><span class="px-2.5 py-0.5 rounded-full bg-kaaf-blue/40 text-kaaf-cyanLight text-xs font-bold border border-kaaf-blue/50">فريق المبيعات B2B</span></td>
+                            <td class="p-3.5 text-gray-400">توثيق حالة كل فرصة، وتفاصيل الاجتماعات، وطلبات الأسعار، والعينات خطوة بخطوة.</td>
+                        </tr>
+                        <tr class="hover:bg-kaaf-cardBg/60 transition">
+                            <td class="p-3.5 text-center font-mono text-kaaf-greenLight">04</td>
+                            <td class="p-3.5 font-bold text-white">هيكلة وإدارة حملات شبكة البحث Google Search</td>
+                            <td class="p-3.5 text-center"><span class="px-2.5 py-0.5 rounded-full bg-kaaf-green/40 text-kaaf-greenLight text-xs font-bold border border-kaaf-green/50">إعلانات جوجل</span></td>
+                            <td class="p-3.5 text-gray-400">استهداف الباحثين بكلمات دالة على الشراء التجاري وفلترة البحث بكلمات سلبية منتظمة.</td>
+                        </tr>
+                        <tr class="hover:bg-kaaf-cardBg/60 transition">
+                            <td class="p-3.5 text-center font-mono text-kaaf-greenLight">05</td>
+                            <td class="p-3.5 font-bold text-white">تهيئة الظهور عبر Google Maps وتوسيع الموقع</td>
+                            <td class="p-3.5 text-center"><span class="px-2.5 py-0.5 rounded-full bg-kaaf-green/40 text-kaaf-greenLight text-xs font-bold border border-kaaf-green/50">الخرائط والظهور المحلي</span></td>
+                            <td class="p-3.5 text-gray-400">تحسين بيانات النشاط الجغرافي وربط إضافات الموقع في الحملات لسهولة الاكتشاف.</td>
+                        </tr>
+                        <tr class="hover:bg-kaaf-cardBg/60 transition">
+                            <td class="p-3.5 text-center font-mono text-kaaf-purpleLight">06</td>
+                            <td class="p-3.5 font-bold text-white">تقارير أداء دورية شفافة وتوصيات تطوير</td>
+                            <td class="p-3.5 text-center"><span class="px-2.5 py-0.5 rounded-full bg-kaaf-purple/40 text-kaaf-purpleLight text-xs font-bold border border-kaaf-purple/50">منظومة مشتركة</span></td>
+                            <td class="p-3.5 text-gray-400">عرض الأنشطة المنفذة، ومؤشرات التفاعل، وتغذية راجعة عن اتجاهات السوق وردود العملاء.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 06 — PROFESSIONAL RESPONSIBILITIES & SCOPE BOUNDARIES                     -->
+        <!-- ========================================================================= -->
+        <section id="responsibilities" class="space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-full bg-kaaf-amber/30 text-kaaf-goldLight font-black text-xs border border-kaaf-amber/50">إطار العمل المهني</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">حدود المسؤولية المهنية ومعايير النجاح المشترك</h2>
+            </div>
+
+            <div class="web-card-amber rounded-3xl p-6 sm:p-10 shadow-web-card space-y-6">
+                <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-normal">
+                    تحرص <strong>KAAF Group</strong> على العمل وفق أعلى معايير الشفافية المهنية؛ ولضمان نجاح المنظومة، نوضح التمييز الدقيق بين نطاق مسؤولياتنا التشغيلية والتسويقية وبين العوامل التجارية والإنتاجية التابعة لإدارة المصنع:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <!-- Column 1: KAAF Scope -->
+                    <div class="p-5 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-cyan/40 space-y-3">
+                        <div class="flex items-center gap-2 text-white font-bold text-sm border-b border-kaaf-cyan/30 pb-2.5">
+                            <i class="fa-solid fa-circle-check text-kaaf-cyanLight"></i>
+                            <span>نطاق مسؤوليات KAAF Group (المنظومة المقترحة)</span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-cyanLight mt-0.5"></i> <span>بناء وتجهيز فريق المبيعات وتدريبه على محفظة منتجات المصنع وسياساته.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-cyanLight mt-0.5"></i> <span>تنظيم عمليات التواصل التجاري مع المعارض والموزعين والمحلات المستهدفة.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-cyanLight mt-0.5"></i> <span>إعداد وإدارة حملات Google Search واستهداف الكلمات المناسبة وفلترة السلبي منها.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-cyanLight mt-0.5"></i> <span>تهيئة بيانات ملف النشاط واستخدام إضافات الموقع الجغرافي الإعلانية.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-cyanLight mt-0.5"></i> <span>توثيق مسار الفرص، والمتابعة المنتظمة، وإعداد التقارير الدورية الشفافة.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 2: Factory Dependent Factors -->
+                    <div class="p-5 rounded-2xl bg-kaaf-darkSlate/90 border border-kaaf-gold/40 space-y-3">
+                        <div class="flex items-center gap-2 text-white font-bold text-sm border-b border-kaaf-gold/30 pb-2.5">
+                            <i class="fa-solid fa-industry text-kaaf-gold"></i>
+                            <span>عوامل تعتمد على إدارة المصنع وطبيعة السوق</span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-gray-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-gold mt-0.5"></i> <span>جودة المنتجات النهائية، ومواصفاتها، ومطابقتها للمعايير والشهادات المطلوبة.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-gold mt-0.5"></i> <span>تنافسية أسعار البيع بالجملة والتجزئة مقارنة بالبدائل المتاحة في السوق.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-gold mt-0.5"></i> <span>وفرة المخزون، والقدرة التشغيلية والإنتاجية على الوفاء بطلبات التوريد في مواعيدها.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-gold mt-0.5"></i> <span>شروط الدفع والتسهيلات الائتمانية المقدمة للتجار والموزعين.</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-angle-left text-kaaf-gold mt-0.5"></i> <span>الموافقة النهائية على العقود والاتفاقيات بين المصنع والعملاء التجاريين.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-black/60 border border-white/10 text-xs text-slate-300 flex items-center gap-3">
+                    <i class="fa-solid fa-shield-halved text-kaaf-gold text-base shrink-0"></i>
+                    <span><strong>التزام مهني:</strong> تضمن KAAF إدارة المنظومة بأعلى كفاءة تشغيلية وتنفيذية ممكنة لتطوير الفرص واقتناص الاهتمام، مع الالتزام التام بعدم إطلاق وعود تسويقية غير واقعية أو ضمانات خارجة عن السيطرة المشتركة.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 07 — CLOSING & NEXT STEPS                                                 -->
+        <!-- ========================================================================= -->
+        <section id="contact-lead" class="relative rounded-[32px] overflow-hidden p-8 sm:p-16 bg-gradient-to-br from-kaaf-blueDeep via-kaaf-darkSlate to-kaaf-dark border border-kaaf-blueLight/40 text-center space-y-8 shadow-web-card">
+            <div class="kaaf-colorful-ribbon absolute top-0 left-0 right-0"></div>
+
+            <div class="max-w-2xl mx-auto space-y-4">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-kaaf-blueLight shadow-glow-blue mx-auto p-0.5 bg-black">
+                    <img src="https://i.ibb.co/qLQcG9vr/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="KAAF Group" class="w-full h-full object-cover rounded-xl">
+                </div>
+
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kaaf-gold/15 border border-kaaf-gold/40 text-kaaf-goldLight text-xs font-bold font-ibm">
+                    <i class="fa-solid fa-handshake"></i>
+                    <span>شراكة تطوير مبيعات مخصصة للمصانع والمنشآت الإنتاجية</span>
+                </div>
+
+                <h3 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+                    منظومة متكاملة لفتح قنوات التوريد وتطوير المبيعات
+                </h3>
+
+                <p class="text-sm sm:text-base text-gray-200 leading-relaxed max-w-xl mx-auto font-medium">
+                    الهدف الأساسي من التعاون مع <strong>KAAF Group</strong> هو مساعدة المصنع في بناء قنوات توزيع وتوريد منظمة، وتسهيل الوصول إلى شركاء تجاريين جدد، واستثمار اهتمام الباحثين في السوق لدعم نمو الأعمال الصناعية والتجارية بكفاءة واحترافية.
+                </p>
+            </div>
+
+            <!-- Operational Highlights Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-right">
+                <div class="p-4 rounded-2xl bg-kaaf-blue/20 border border-kaaf-blue/40 space-y-1">
+                    <div class="text-xs font-bold text-kaaf-cyanLight flex items-center gap-1.5">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>تواصل بيعي مباشر</span>
+                    </div>
+                    <p class="text-[11px] text-gray-300">استهداف المعارض والمحلات وتجار الجملة لبناء علاقات توريد مستمرة.</p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-kaaf-green/20 border border-kaaf-green/40 space-y-1">
+                    <div class="text-xs font-bold text-kaaf-greenLight flex items-center gap-1.5">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>حملات بحث واكتشاف</span>
+                    </div>
+                    <p class="text-[11px] text-gray-300">الوصول إلى الباحثين عن المنتجات والموردين عبر Google Search والخرائط.</p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-kaaf-purple/20 border border-kaaf-purple/40 space-y-1">
+                    <div class="text-xs font-bold text-kaaf-purpleLight flex items-center gap-1.5">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <span>متابعة وتقارير</span>
+                    </div>
+                    <p class="text-[11px] text-gray-300">سجل منظم لفرص البيع وتوثيق مستمر لجميع التفاعلات مع إدارة المصنع.</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/966558029554?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20KAAF%20Group%D8%8C%20%D9%86%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AD%D8%AB%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D9%85%D9%86%D8%B8%D9%88%D9%85%D8%A9%20%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%B5%D9%86%D8%B9%20B2B%20%D9%88%D8%A5%D8%B9%D9%84%D8%A7%D9%86%D8%A7%D8%AA%20%D8%AC%D9%88%D8%AC%D9%84" target="_blank" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-kaaf-green hover:brightness-110 text-white font-black text-xs shadow-xl flex items-center gap-3 transition-transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>بدء التنسيق والتشاور مع KAAF Group</span>
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                </a>
+                <button onclick="window.print()" class="px-6 py-4 rounded-2xl bg-kaaf-dark border border-kaaf-border text-white font-bold text-xs hover:border-kaaf-cyan transition flex items-center gap-2">
+                    <i class="fa-solid fa-print text-kaaf-cyanLight"></i>
+                    <span>طباعة / حفظ الوثيقة بصيغة PDF</span>
+                </button>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 text-xs text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div>عرض خدمات تطوير مبيعات المصانع • KAAF Group for Marketing, Software & Media Solutions</div>
+                <div class="font-mono text-gray-400">B2B Manufacturing Sales & Google Visibility Proposal • All Rights Reserved</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- INTERACTIVE HTML5 CANVAS SCRIPT -->
+    <script>
+        (function() {
+            const canvas = document.getElementById('interactive-bg-canvas');
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let particles = [];
+            const particleCount = 45;
+            const colors = ['#0A4C86', '#06B6D4', '#00875A', '#7C3AED', '#D4AF37'];
+
+            let mouse = {
+                x: null,
+                y: null,
+                radius: 140
+            };
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            window.addEventListener('resize', resize);
+            window.addEventListener('mousemove', function(e) {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+            window.addEventListener('mouseout', function() {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            // Touch events for mobile
+            window.addEventListener('touchmove', function(e) {
+                if (e.touches.length > 0) {
+                    mouse.x = e.touches[0].clientX;
+                    mouse.y = e.touches[0].clientY;
+                }
+            }, { passive: true });
+            window.addEventListener('touchend', function() {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.8;
+                    this.vy = (Math.random() - 0.5) * 0.8;
+                    this.radius = Math.random() * 2.5 + 1.5;
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                    this.baseAlpha = Math.random() * 0.4 + 0.3;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    // Bounce on screen edges
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Mouse interaction
+                    if (mouse.x !== null && mouse.y !== null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouse.radius) {
+                            let force = (mouse.radius - distance) / mouse.radius;
+                            let directionX = (dx / distance) * force * 3;
+                            let directionY = (dy / distance) * force * 3;
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.globalAlpha = this.baseAlpha;
+                    ctx.fill();
+                }
+            }
+
+            function init() {
+                resize();
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function connect() {
+                const maxDistance = 140;
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a + 1; b < particles.length; b++) {
+                        let dx = particles[a].x - particles[b].x;
+                        let dy = particles[a].y - particles[b].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < maxDistance) {
+                            let opacity = (1 - (distance / maxDistance)) * 0.25;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.strokeStyle = '#06B6D4';
+                            ctx.globalAlpha = opacity;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.globalAlpha = 1;
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                connect();
+
+                requestAnimationFrame(animate);
+            }
+
+            window.onload = function() {
+                init();
+                animate();
+            };
+        })();
+    </script>
+</body>
+</html>
